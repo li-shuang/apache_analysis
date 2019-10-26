@@ -6,7 +6,3 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(lineno)d - %(module)s - %(message)s')
 logger = logging.getLogger(__name__)
  
-#logger.info('This is a log info')
-#logger.debug('Debugging')
-#logger.warning('Warning exists')
-#logger.info('Finish')

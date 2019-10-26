@@ -45,5 +45,3 @@ def apache_param_analysis():
     apache_param = {"server_ip":args.server_ip, "log_file_path":args.log_file_path,
                     "report_type":args.report_type}
     return apache_param
-
-#apache_param_analysis()

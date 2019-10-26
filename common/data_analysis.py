@@ -91,12 +91,10 @@ class ApacheAnalysis(object):
                     "/designing/tools/image/gitbook/images/favicon.ic":None
                 }
         """
-        #all_title_data = {}
         for title in data_set['title_url_set']:
             req_url = 'http://'+ self.host_ip + title
             article_title = self.get_html_title(req_url)
             self.all_url_title_data[title] = article_title
-        #return all_title_data
 
     def get_detailed_data(self,log_file_data):
         """
@@ -125,7 +123,6 @@ class ApacheAnalysis(object):
         for data in log_file_data:
             data_info = self.get_ip_url(data)
             if data_info is not None:
-                #print(data_info)
                 detailed_data_list.append(data_info)
 
         return detailed_data_list
@@ -177,7 +174,6 @@ class ApacheAnalysis(object):
         :param data_set：
         :return:
         """
-        #import pdb;pdb.set_trace()
         tb = PrettyTable()
         tb.field_names = ["IP", "访问次数", "访问文章数"]
         
@@ -195,8 +191,7 @@ class ApacheAnalysis(object):
                     else:
                         visit_title_count = visit_title_count + 1
             tb.add_row([ip, visit_count, visit_title_count])
-            #print("visit_count:",visit_count)
-            #print("visit_title_count:",visit_title_count)
+
         print(tb)
         return tb
 
@@ -225,19 +220,15 @@ class ApacheAnalysis(object):
             visit_count = 0
             ip_visit_count = 0
             title_ip_set = set([])
-            #print(title)
             for data in detailed_data_list:
                 if title == data['url']:
                     visit_count = visit_count + 1
                     title_ip_set.add(data['ip'])
             ip_visit_count = len(title_ip_set)
             req_url = 'http://'+ self.host_ip + title
-            #print(req_url)
             article_title = self.get_html_title(req_url)
-            #print("visit_count:",visit_count)
-            #print("ip_visit_count:",ip_visit_count)
-            #print(article_title)
             tb.add_row([title, article_title, visit_count, ip_visit_count])
+
         print(tb)
         return tb
             
@@ -272,7 +263,7 @@ class ApacheAnalysis(object):
             ip = ip_url[0]
             url = ip_url[1]
             tb.add_row([ip, url, visit_count])
-            #print(visit_count)
+
         print(tb)
         return tb
         
@@ -298,13 +289,4 @@ class ApacheAnalysis(object):
         object_ip = self.get_ip_report(detailed_data_list, data_set)
         object_full = self.get_full_report(detailed_data_list, data_set)
 
-        return {"object_title":object_title, "object_ip":object_ip, "object_full":object_full}
-  
-#test_data_base = data_load.DataBase()
-#log_file_data = test_data_base.read_log_file("/home/ls/log.txt")
-#test_apache_analysis = ApacheAnalysis()
-#detailed_data_list = test_apache_analysis.get_detailed_data(log_file_data)
-#print(detailed_data_list)
-#data_set = test_apache_analysis.get_ip_url_set_data(detailed_data_list)
-#print(data_set)
-#test_apache_analysis.get_full_report(detailed_data_list,data_set)  
+        return {"object_title":object_title, "object_ip":object_ip, "object_full":object_full}  

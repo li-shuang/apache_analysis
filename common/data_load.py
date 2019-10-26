@@ -25,8 +25,3 @@ class DataBase(object):
         log_list_data = log_file_data.split('\n')
         log_file.close()
         return log_list_data
-
-
-#test_data_base = DataBase()
-#html = test_data_base.get_url_html("http://200.200.1.35/coding/miniprj/material.html")
-#print(test_data_base.read_log_file("/home/ls/log.txt"))
