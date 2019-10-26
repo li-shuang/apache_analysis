@@ -47,7 +47,7 @@ class ApacheAnalysis(object):
         response = None
 
         try:
-            response = urllib2.urlopen(url)
+            response = urllib2.urlopen(url, timeout=1)
             html = response.read()
         except Exception as ex:
             logger.info("start get %(url)s html err:%(err)s" % {'url': url, 'err':ex})

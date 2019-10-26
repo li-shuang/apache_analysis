@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from common.data_analysis import ApacheAnalysis,set_host_ip
+from common.data_analysis import ApacheAnalysis
 from common.data_load import DataBase
-from common.param_analysis import apache_param_analysis
+from tool.param_analysis import apache_param_analysis
 
 if __name__ == '__main__':
     test_param = apache_param_analysis()
