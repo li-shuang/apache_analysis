@@ -14,7 +14,8 @@ if __name__ == '__main__':
     
     detailed_data_list = test_apache_analysis.get_detailed_data(log_file_data)
     data_set = test_apache_analysis.get_ip_url_set_data(detailed_data_list)
-    
+    test_apache_analysis.get_all_url_title_data(data_set)
+    #print(test_apache_analysis.all_url_title_data)
     if test_param['report_type'] == 'ip' :
         test_apache_analysis.get_ip_report(detailed_data_list,data_set)
 

@@ -6,15 +6,11 @@ import urllib2
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
-APACHE_HOST_IP = '200.200.1.35'
-
-def set_host_ip(host_ip):
-    APACHE_HOST_IP = host_ip
-
 
 class ApacheAnalysis(object):
     def __init__(self, host_ip):
         self.host_ip = host_ip
+        self.all_url_title_data = {}
 
     def get_ip_url(self, data):
         """
@@ -85,6 +81,22 @@ class ApacheAnalysis(object):
             return node
 
         return title
+
+    def get_all_url_title_data(self, data_set):
+        """
+        提取所有的url的标题信息
+        :param data_set:
+        :return:{
+                    "/coding/miniprj/material.html":训练素材,
+                    "/designing/tools/image/gitbook/images/favicon.ic":None
+                }
+        """
+        #all_title_data = {}
+        for title in data_set['title_url_set']:
+            req_url = 'http://'+ self.host_ip + title
+            article_title = self.get_html_title(req_url)
+            self.all_url_title_data[title] = article_title
+        #return all_title_data
 
     def get_detailed_data(self,log_file_data):
         """
