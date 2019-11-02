@@ -8,19 +8,19 @@
 ## 程序运行
 ### 生成所有报表
 ```
-python main 200.200.1.35 log.txt all
+python main.py 200.200.1.35 log.txt all
 ```
 ### 生成IP表报
 ```
-python main 200.200.1.35 log.txt ip
+python main.py 200.200.1.35 log.txt ip
 ```
 ### 生成文章报表
 ```
-python main 200.200.1.35 log.txt title
+python main.py 200.200.1.35 log.txt title
 ```
 ### 生成完整报表
 ```
-python main 200.200.1.35 log.txt full
+python main.py 200.200.1.35 log.txt full
 ```
 
 ## 生成覆盖率
